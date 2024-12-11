@@ -1,0 +1,32 @@
+# Entornos virtuales
+venv/
+backend/venv/
+
+# Archivos de entorno
+.env
+
+# Archivos y carpetas de compilación de Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.so
+*.egg-info/
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de IDEs o editores
+.vscode/
+.idea/
+
+# Configuraciones del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de Uvicorn reloader cache
+*.reload/
+
+# Dependencias instaladas (si por error se agregan)
+backend/requirements.txt.lock
