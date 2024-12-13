@@ -1,30 +1,30 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
-from routes.data import router as data_router  # Asegúrate de que esta importación es correcta
+from routes.data import router as data_router  # Ensure this import is correct
 
-# Cargar variables de entorno
+# Load environment variables from .env file
 load_dotenv()
 
-# Crear instancia de FastAPI
+# Create FastAPI instance
 app = FastAPI()
 
-# Configuración de CORS
+# CORS configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",  # Local para desarrollo
-        "https://proyecto-clima-azure.vercel.app/"  # URL de Vercel (ajusta según tu despliegue)
+        "http://localhost:5173",  # Local for development
+        "https://proyecto-clima-azure.vercel.app",  # URL of your deployed frontend on Vercel
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Ruta principal para verificar que el backend está funcionando
+# Main route to check if the backend is working
 @app.get("/")
 async def root():
     return {"message": "API is running"}
 
-# Incluir el router de data con prefijo /api
+# Include the data router with prefix /api
 app.include_router(data_router, prefix="/api")
