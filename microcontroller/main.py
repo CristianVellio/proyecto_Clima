@@ -6,7 +6,7 @@ import ujson
 import urequests as requests
 
 # URL del backend FastAPI
-API_URL = "http://192.168.1.1:8000/api/data"
+API_URL = "http://192.168.1.2:8000/api/data"
 
 # Inicialización del sensor DHT22 en el pin GPIO15
 sensor = dht.DHT22(Pin(15))

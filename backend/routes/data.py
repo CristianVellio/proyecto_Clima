@@ -33,7 +33,7 @@ async def get_data():
 
         # Opcional: Formatear los datos en un formato más legible
         data = [
-            {"id": row[0], "temperatura": row[1], "humedad": row[2], "localizacion": row[3]}
+            {"id": row[0], "created_at": row[1], "temperatura": row[2], "humedad": row[3], "localizacion": row[4]}
             for row in rows
         ]
         return {"status": "success", "data": data}
