@@ -1,17 +1,23 @@
 from fastapi import APIRouter
 import psycopg2
+from pydantic import BaseModel
 from config import DATABASE_URL
+
+class WeatherData(BaseModel):
+    temperatura: float
+    humedad: float
+    localizacion: str
 
 router = APIRouter()
 
 @router.post("/data")
-async def insert_data(data: dict):
+async def insert_data(data: WeatherData):
     try:
         conn = psycopg2.connect(DATABASE_URL)
         cur = conn.cursor()
         cur.execute(
             "INSERT INTO clima_data (temperatura, humedad, localizacion) VALUES (%s, %s, %s)",
-            (data["temperatura"], data["humedad"], data["localizacion"]),
+            (data.temperatura, data.humedad, data.localizacion),
         )
         conn.commit()
         cur.close()
