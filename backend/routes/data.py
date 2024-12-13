@@ -1,47 +1,46 @@
 from fastapi import APIRouter
 import psycopg2
-from pydantic import BaseModel
+from psycopg2 import pool
+from psycopg2.extras import RealDictCursor
+from pydantic import BaseModel, Field
 from config import DATABASE_URL
 
+# Configurar el pool de conexiones
+connection_pool = psycopg2.pool.SimpleConnectionPool(1, 10, DATABASE_URL)
+
 class WeatherData(BaseModel):
-    temperatura: float
-    humedad: float
-    localizacion: str
+    temperatura: float = Field(..., ge=-50, le=50, description="Temperatura en grados Celsius (-50 a 50)")
+    humedad: float = Field(..., ge=0, le=100, description="Humedad en porcentaje (0-100)")
+    localizacion: str = Field(..., max_length=255, description="Descripción de la ubicación")
 
 router = APIRouter()
 
 @router.post("/data")
 async def insert_data(data: WeatherData):
     try:
-        conn = psycopg2.connect(DATABASE_URL)
-        cur = conn.cursor()
-        cur.execute(
-            "INSERT INTO clima_data (temperatura, humedad, localizacion) VALUES (%s, %s, %s)",
-            (data.temperatura, data.humedad, data.localizacion),
-        )
-        conn.commit()
-        cur.close()
-        conn.close()
-        return {"status": "success"}
+        conn = connection_pool.getconn()
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                INSERT INTO clima_data (temperatura, humedad, localizacion)
+                VALUES (%s, %s, %s)
+                """,
+                (data.temperatura, data.humedad, data.localizacion),
+            )
+            conn.commit()
+        connection_pool.putconn(conn)
+        return {"status": "success", "message": "Data inserted successfully"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
-    
 
 @router.get("/data")
 async def get_data():
     try:
-        conn = psycopg2.connect(DATABASE_URL)
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM clima_data")
-        rows = cur.fetchall()
-        cur.close()
-        conn.close()
-
-        # Opcional: Formatear los datos en un formato más legible
-        data = [
-            {"id": row[0], "created_at": row[1], "temperatura": row[2], "humedad": row[3], "localizacion": row[4]}
-            for row in rows
-        ]
-        return {"status": "success", "data": data}
+        conn = connection_pool.getconn()
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("SELECT * FROM clima_data ORDER BY created_at DESC")
+            rows = cur.fetchall()
+        connection_pool.putconn(conn)
+        return {"status": "success", "data": rows}
     except Exception as e:
         return {"status": "error", "message": str(e)}
