@@ -14,7 +14,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",  # Local para desarrollo
-        "https://proyecto-clima-nywds8nnt-chris-projects-be539ae8.vercel.app/"  # URL de Vercel (ajusta según tu despliegue)
+        "https://proyecto-clima-azure.vercel.app/"  # URL de Vercel (ajusta según tu despliegue)
     ],
     allow_credentials=True,
     allow_methods=["*"],
