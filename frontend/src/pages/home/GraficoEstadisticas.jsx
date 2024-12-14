@@ -30,6 +30,7 @@ const GraficoEstadisticas = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: false, // Add this if you're not using credentials
       })
       .then((response) => {
         const fetchedData = response.data.data; // Assuming API response structure

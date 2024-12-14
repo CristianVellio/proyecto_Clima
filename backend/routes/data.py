@@ -19,9 +19,10 @@ router = APIRouter()
 async def options_data():
     return Response(
         headers={
-            "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app",
+            "Access-Control-Allow-Origin": "*",  # Or specify exact origin
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            "Access-Control-Max-Age": "3600"  # Optional: cache preflight request
         }
     )
 
