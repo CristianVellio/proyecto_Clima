@@ -27,7 +27,10 @@ jspm_packages/
 *.sln
 
 # OS files
-__pycache__/
+
 .DS_Store
 Thumbs.db
 .vercel
+
+
+__pycache__
