@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Response
 import psycopg2
 from psycopg2 import pool
 from psycopg2.extras import RealDictCursor
@@ -14,6 +14,16 @@ class WeatherData(BaseModel):
     localizacion: str = Field(..., max_length=255, description="Descripción de la ubicación")
 
 router = APIRouter()
+
+@router.options("/data")
+async def options_data():
+    return Response(
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        }
+    )
 
 # Definir ruta HEAD para /data
 @router.head("/data")
