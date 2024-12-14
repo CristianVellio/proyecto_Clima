@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from routes.data import router as data_router  # Ensure this import is correct
 
 # Load environment variables from .env file
@@ -21,6 +22,11 @@ app.add_middleware(
     allow_headers=["*"],
     allow_headers=["Content-Type", "Authorization", "X-Custom-Header"],
 )
+
+@router.head("/data")
+async def head_data():
+    return Response(status_code=200)
+
 
 # Main route to check if the backend is working
 @app.get("/")
