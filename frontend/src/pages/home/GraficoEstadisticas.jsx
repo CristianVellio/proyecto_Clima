@@ -31,8 +31,8 @@ const GraficoEstadisticas = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin":
-                "https://proyecto-clima-azure.vercel.app",
+              // "Access-Control-Allow-Origin":
+              //   "https://proyecto-clima-azure.vercel.app",
             },
             withCredentials: false,
           }
