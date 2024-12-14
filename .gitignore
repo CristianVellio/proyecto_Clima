@@ -74,6 +74,7 @@ backend/venv/
 
 # Archivos de entorno
 .env
+.venv
 
 # Archivos y carpetas de compilación de Python
 *.pyc
