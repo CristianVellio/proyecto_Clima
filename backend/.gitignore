@@ -1,37 +1,29 @@
-# Node.js
-node_modules/
-npm-debug.log
-yarn-error.log
+# Entornos virtuales
+venv/
+backend/venv/
 
-# Logs
-logs/
-*.log
-*.log.*
-
-# Environment variables
+# Archivos de entorno
 .env
 
-# Production
-build/
-dist/
+# Archivos y carpetas de compilación de Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.so
+*.egg-info/
 
-# Dependency directories
-jspm_packages/
+# Archivos de logs
+*.log
+logs/
 
-# IDEs and editors
+# Archivos de IDEs o editores
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
 
-# OS files
-
+# Configuraciones del sistema operativo
 .DS_Store
 Thumbs.db
-.vercel
 
-
-# Python cache
-__pycache__/
+# Carpetas de Uvicorn reloader cache
+*.reload/
