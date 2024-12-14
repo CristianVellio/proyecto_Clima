@@ -5,7 +5,7 @@ from psycopg2.extras import RealDictCursor
 from pydantic import BaseModel, Field
 from config import DATABASE_URL
 
-# Configurar el pool de conexiones
+# Configuración del pool de conexiones
 connection_pool = psycopg2.pool.SimpleConnectionPool(1, 10, DATABASE_URL)
 
 class WeatherData(BaseModel):
@@ -14,6 +14,11 @@ class WeatherData(BaseModel):
     localizacion: str = Field(..., max_length=255, description="Descripción de la ubicación")
 
 router = APIRouter()
+
+# Definir ruta HEAD para /data
+@router.head("/data")
+async def head_data():
+    return Response(status_code=200)
 
 @router.post("/data")
 async def insert_data(data: WeatherData):
