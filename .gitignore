@@ -28,3 +28,74 @@ Thumbs.db
 # Carpetas de Uvicorn reloader cache
 *.reload/
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build directories
+dist
+dist-ssr
+
+# Local environment files
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+
+
+# Entornos virtuales
+venv/
+backend/venv/
+
+# Archivos de entorno
+.env
+
+# Archivos y carpetas de compilación de Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.so
+*.egg-info/
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de IDEs o editores
+.vscode/
+.idea/
+
+# Configuraciones del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de Uvicorn reloader cache
+*.reload/
+
+
