@@ -26,7 +26,11 @@ const GraficoEstadisticas = () => {
   useEffect(() => {
     // Fetch data from your backend API
     axios
-      .get("https://clima-backend-nine.vercel.app/api/data")
+      .get("https://clima-backend-nine.vercel.app/api/data", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         const fetchedData = response.data.data; // Assuming API response structure
 
