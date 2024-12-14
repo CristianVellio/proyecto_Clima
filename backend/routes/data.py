@@ -25,7 +25,7 @@ async def options_data():
             "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "Access-Control-Max-Age": "3600"  # Cache para preflight
+            "Access-Control-Max-Age": "86489"  # Cache para preflight
         },
         status_code=204,  # Sin contenido para OPTIONS
     )
