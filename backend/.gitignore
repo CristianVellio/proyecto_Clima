@@ -33,4 +33,5 @@ Thumbs.db
 .vercel
 
 
-__pycache__
+# Python cache
+__pycache__/
