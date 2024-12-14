@@ -13,7 +13,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "*", 
+        "http://localhost:5173",  # Local para desarrollo
+        "https://proyecto-clima-azure.vercel.app",  # URL de frontend en Vercel
     ],
     allow_credentials=True,
     allow_methods=["*"],
