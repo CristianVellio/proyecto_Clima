@@ -19,6 +19,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # Main route to check if the backend is working
