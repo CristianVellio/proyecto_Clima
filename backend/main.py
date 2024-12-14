@@ -30,6 +30,6 @@ async def add_cors_headers(request, call_next):
 
 @app.get("/")
 async def root():
-    return {"message": "API is running"}
+    return {"message": "API esta funcionando!"}
 
 app.include_router(data_router, prefix="/api")
