@@ -25,7 +25,7 @@ app.add_middleware(
 # Ruta principal para verificar si el backend está funcionando
 @app.get("/")
 async def root():
-    return {"message": "API is running"}
+    return {"message": "API esta funcionando!"}
 
 # Incluir el router de data con prefijo /api
 app.include_router(data_router, prefix="/api")
