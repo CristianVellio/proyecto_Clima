@@ -15,8 +15,8 @@ app.add_middleware(
         "http://localhost:5173"  # Local development
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  # Métodos específicos
+    allow_headers=["Content-Type", "Authorization"],  # Headers permitidos
 )
 
 # Add a CORS middleware to all routes
