@@ -1,7 +1,7 @@
 const Implementacion = () => {
   return (
     <div className="flex flex-col md:flex-row py-16 justify-between items-center gap-12">
-      <div className="md:w-1/2 w-full flex items-center justify-center md:justify-start">
+      {/* <div className="md:w-1/2 w-full flex items-center justify-center md:justify-start">
         <iframe
           width="560"
           height="315"
@@ -12,7 +12,7 @@ const Implementacion = () => {
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
       <div className="md:w-1/2 w-full">
         <h2 className="md:text-5xl text-2xl font-medium mb-7">
           Casos de usos prácticos de esta tecnología
