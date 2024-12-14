@@ -4,6 +4,7 @@ import psycopg2
 from psycopg2 import pool
 from psycopg2.extras import RealDictCursor
 from pydantic import BaseModel, Field
+from datetime import datetime
 from config import DATABASE_URL
 
 # Configuración del pool de conexiones
@@ -40,6 +41,12 @@ async def get_data():
         with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute("SELECT * FROM clima_data ORDER BY created_at DESC")
             rows = cur.fetchall()
+
+          # Serializar el campo datetime (si existe) antes de devolverlo
+            for row in rows:
+                if row.get("created_at"):
+                    row["created_at"] = row["created_at"].isoformat()
+
         connection_pool.putconn(conn)
         return JSONResponse(
             content={"status": "success", "data": rows},
