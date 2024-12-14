@@ -8,16 +8,16 @@ load_dotenv()
 app = FastAPI()
 
 # Update CORS middleware to be more explicit
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "https://proyecto-clima-azure.vercel.app",  # Exact frontend URL
-        "http://localhost:5173"  # Local development
-    ],
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  # Métodos específicos
-    allow_headers=["Content-Type", "Authorization"],  # Headers permitidos
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=[
+#         "https://proyecto-clima-azure.vercel.app",  # Exact frontend URL
+#         "http://localhost:5173"  # Local development
+#     ],
+#     allow_credentials=True,
+#     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  # Métodos específicos
+#     allow_headers=["Content-Type", "Authorization"],  # Headers permitidos
+# )
 
 # Add a CORS middleware to all routes
 @app.middleware("http")
