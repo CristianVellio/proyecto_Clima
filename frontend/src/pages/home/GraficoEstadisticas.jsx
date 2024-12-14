@@ -27,7 +27,7 @@ const GraficoEstadisticas = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://clima-backend-nine.vercel.app/api/data",
+          "https://clima-backend-plpg.vercel.app/api/data",
           {
             headers: {
               "Content-Type": "application/json",
