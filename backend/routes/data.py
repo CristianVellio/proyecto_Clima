@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Response
+from fastapi import APIRouter, Response, HTTPException
+from fastapi.responses import JSONResponse
 import psycopg2
 from psycopg2 import pool
 from psycopg2.extras import RealDictCursor
@@ -17,12 +18,13 @@ router = APIRouter()
 
 @router.options("/data")
 async def options_data():
-    return Response(
+    return JSONResponse(
+        content={},
         headers={
-            "Access-Control-Allow-Origin": "*",  # Or specify exact origin
+            "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "Access-Control-Max-Age": "3600"  # Optional: cache preflight request
+            "Access-Control-Max-Age": "3600"
         }
     )
 
@@ -30,6 +32,29 @@ async def options_data():
 @router.head("/data")
 async def head_data():
     return Response(status_code=200)
+
+@router.get("/data")
+async def get_data():
+    try:
+        conn = connection_pool.getconn()
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
+            cur.execute("SELECT * FROM clima_data ORDER BY created_at DESC")
+            rows = cur.fetchall()
+        connection_pool.putconn(conn)
+        return JSONResponse(
+            content={"status": "success", "data": rows},
+            headers={
+                "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app"
+            }
+        )
+    except Exception as e:
+        return JSONResponse(
+            content={"status": "error", "message": str(e)},
+            headers={
+                "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app"
+            },
+            status_code=500
+        )
 
 @router.post("/data")
 async def insert_data(data: WeatherData):
@@ -45,18 +70,17 @@ async def insert_data(data: WeatherData):
             )
             conn.commit()
         connection_pool.putconn(conn)
-        return {"status": "success", "message": "Data inserted successfully"}
+        return JSONResponse(
+            content={"status": "success", "message": "Data inserted successfully"},
+            headers={
+                "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app"
+            }
+        )
     except Exception as e:
-        return {"status": "error", "message": str(e)}
-
-@router.get("/data")
-async def get_data():
-    try:
-        conn = connection_pool.getconn()
-        with conn.cursor(cursor_factory=RealDictCursor) as cur:
-            cur.execute("SELECT * FROM clima_data ORDER BY created_at DESC")
-            rows = cur.fetchall()
-        connection_pool.putconn(conn)
-        return {"status": "success", "data": rows}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+        return JSONResponse(
+            content={"status": "error", "message": str(e)},
+            headers={
+                "Access-Control-Allow-Origin": "https://proyecto-clima-azure.vercel.app"
+            },
+            status_code=500
+        )

@@ -24,16 +24,21 @@ const GraficoEstadisticas = () => {
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    // Fetch data from your backend API
-    axios
-      .get("https://clima-backend-nine.vercel.app/api/data", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: false, // Add this if you're not using credentials
-      })
-      .then((response) => {
-        const fetchedData = response.data.data; // Assuming API response structure
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://clima-backend-nine.vercel.app/api/data",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin":
+                "https://proyecto-clima-azure.vercel.app",
+            },
+            withCredentials: false,
+          }
+        );
+
+        const fetchedData = response.data.data;
 
         const created_at = fetchedData.map((item) => item.created_at); // Extract dates
         const temperaturas = fetchedData.map((item) => item.temperatura); // Extract temperatures
@@ -58,10 +63,15 @@ const GraficoEstadisticas = () => {
             },
           ],
         });
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+      } catch (error) {
+        console.error(
+          "Error fetching data:",
+          error.response ? error.response.data : error.message
+        );
+      }
+    };
+
+    fetchData();
   }, []);
 
   const options = {
