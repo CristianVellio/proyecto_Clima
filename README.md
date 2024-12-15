@@ -13,17 +13,33 @@ El proyecto **Estación Meteorológica** es un sistema IoT diseñado para monito
 3. **Desarrollo del Frontend**: Implementación de una interfaz web para la visualización interactiva de los datos recopilados.
 
 Este enfoque escalonado asegura la validación de cada componente antes de su integración, permitiendo un desarrollo robusto y eficiente del sistema.
+Puedes visitar nuestro proyecto [aqui](https://proyecto-clima-azure.vercel.app/)
 
 ---
 
-<h2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="40" height="40"/> Backend </h2>
+<H2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40"/> Etapa Inicial: Desarrollo en Wokwi 🛠️ </H2>
+
+La primera etapa del proyecto se llevó a cabo en [Wokwi](https://wokwi.com/), una plataforma en línea para simular proyectos con microcontroladores. En esta fase se realizó:
+
+- **Configuración del ESP32**: Programación inicial para leer datos de sensores, con MicroPython.
+- **Implementación de Sensores**: Integración de un sensor DHTT para la temperatura y la humedad.
+- **Simulación de datos**: Pruebas de lecturas y envíos de datos simulados.
+- **Conexión simulada a una red Wi-Fi**: Preparación para la comunicación con la base de datos en etapas posteriores.
+
+Puedes explorar la simulación en detalle [aquí](https://wokwi.com/projects/416590054597285889).
+
+Esta etapa fue crucial para validar el diseño inicial del sistema y garantizar que los componentes funcionen correctamente antes de avanzar hacia la integración con una base de datos real.
+
+---
+
+<h2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40" height="40"/>  Backend <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="40" height="40"/> </h2>
 
 El backend del proyecto conecta el ESP32 con una base de datos en **Supabase**, donde se almacenan todos los registros ambientales enviados desde el microcontrolador. Esta capa intermedia garantiza una comunicación fluida y segura entre el hardware y los datos en la nube.
 
 ### **Funcionalidades**
 
 1. **Conexión ESP32 a Supabase**:
-   - Los datos ambientales (temperatura, humedad, presión, calidad del aire) se envían al servidor mediante HTTP.
+   - Los datos ambientales (temperatura, humedad) se envían al servidor mediante HTTP.
    - Uso de autenticación por claves API para asegurar la integridad de los datos.
 
 2. **Gestión de la Base de Datos**:
@@ -36,7 +52,7 @@ El backend del proyecto conecta el ESP32 con una base de datos en **Supabase**, 
 ### **Dependencias del Backend**
 - **[PostgreSQL](https://www.postgresql.org/):** Motor de base de datos utilizado en Supabase.
 - **[Supabase](https://supabase.com/):** Plataforma backend para autenticación y almacenamiento.
-- **[ESP32 Arduino Library](https://github.com/espressif/arduino-esp32):** Para manejo del hardware.
+- **[FastAPI Framework](https://fastapi.tiangolo.com/):** Para la creacion y manejo ApiREST.
 
 ---
 
