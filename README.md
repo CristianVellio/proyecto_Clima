@@ -56,7 +56,7 @@ El backend del proyecto conecta el ESP32 con una base de datos en **Supabase**, 
 
 ---
 
-<h2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-plain.svg" width="40" height="40"/> Frontend </h2>
+<h2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" width="40" height="40"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="40" height="40"/> Frontend <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" width="40" height="40"/> </h2>
 
 El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, permitiendo a los usuarios visualizar datos en tiempo real a través de gráficos y dashboards dinámicos.
 
@@ -73,8 +73,6 @@ El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, pe
    - Recuperación de registros directamente desde Supabase mediante **Axios**.
    - Actualización automática de gráficos.
 
-4. **Notificaciones y Alertas**:
-   - Notificaciones dinámicas cuando los valores superan los umbrales definidos.
 
 ### **Dependencias del Frontend**
 - **[React](https://reactjs.org/):** Biblioteca principal para la interfaz.
@@ -82,7 +80,6 @@ El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, pe
 - **[Axios](https://axios-http.com/):** Comunicación con el backend.
 - **[Chart.js](https://www.chartjs.org/):** Visualización de datos.
 - **[TailwindCSS](https://tailwindcss.com/):** Diseño responsivo y moderno.
-- **[SweetAlert2](https://sweetalert2.github.io/):** Notificaciones atractivas.
 
 ---
 
@@ -111,7 +108,3 @@ El proyecto tiene múltiples aplicaciones en diferentes campos, como:
 - **Educación y Experimentación**: Base para estudios relacionados con IoT y análisis de datos.
 
 ---
-
-<h2 align="center"> Reflexiones Finales 📖 </h2>
-
-El desarrollo de este proyecto nos permitió aprender sobre el diseño y la implementación de sistemas IoT, enfrentando desafíos técnicos y logrando integrar tecnologías modernas. Además, exploramos el impacto que este tipo de soluciones puede tener en diversos sectores. Si bien nuestro sistema está limitado a una estación meteorológica, el potencial de IoT es vasto, y sería fascinante explorar aplicaciones más amplias en el futuro.
