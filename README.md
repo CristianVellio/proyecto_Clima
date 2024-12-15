@@ -97,6 +97,11 @@ El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, pe
    - Consulta los datos desde Supabase y los representa en gráficos interactivos.
    - Alertas dinámicas basadas en los datos más recientes.
 
+
+      - Microcontrolador: [Wokwi](https://wokwi.com/) 
+      - Backend: [Vercel](https://vercel.com/) 
+      - Frontend: [Vercel](https://vercel.com/)
+
 ---
 
 <h2 align="center"> Aplicaciones del Proyecto 🌍 </h2>
@@ -107,7 +112,4 @@ El proyecto tiene múltiples aplicaciones en diferentes campos, como:
 - **Ciudades Inteligentes**: Integración en redes urbanas para monitoreo de calidad del aire.
 - **Educación y Experimentación**: Base para estudios relacionados con IoT y análisis de datos.
 
-   - Microcontrolador: [Wokwi](https://wokwi.com/) 
-   - Backend: [Vercel](https://vercel.com/) 
-   - Frontend: [Vercel](https://vercel.com/)
 ---
