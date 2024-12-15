@@ -107,4 +107,7 @@ El proyecto tiene múltiples aplicaciones en diferentes campos, como:
 - **Ciudades Inteligentes**: Integración en redes urbanas para monitoreo de calidad del aire.
 - **Educación y Experimentación**: Base para estudios relacionados con IoT y análisis de datos.
 
+   - Microcontrolador: [Wokwi](https://wokwi.com/) 
+   - Backend: [Vercel](https://vercel.com/) 
+   - Frontend: [Vercel](https://vercel.com/)
 ---
