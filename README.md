@@ -49,6 +49,8 @@ El backend del proyecto conecta el ESP32 con una base de datos en **Supabase**, 
 3. **Optimización de la Transferencia de Datos**:
    - Implementación de intervalos de envío configurables desde el ESP32 para optimizar el uso de red y recursos.
 
+Puedes visitar el deploy del Backend [aquí](https://clima-backend-plpg.vercel.app/api/data).
+
 ### **Dependencias del Backend**
 - **[PostgreSQL](https://www.postgresql.org/):** Motor de base de datos utilizado en Supabase.
 - **[Supabase](https://supabase.com/):** Plataforma backend para autenticación y almacenamiento.
@@ -72,6 +74,9 @@ El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, pe
 3. **Interacción con la Base de Datos**:
    - Recuperación de registros directamente desde Supabase mediante **Axios**.
    - Actualización automática de gráficos.
+
+
+Puedes visitar el deploy del Backend [aquí](https://proyecto-clima-azure.vercel.app/).
 
 
 ### **Dependencias del Frontend**
