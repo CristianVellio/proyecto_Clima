@@ -76,7 +76,7 @@ El frontend está diseñado para ofrecer una experiencia intuitiva y moderna, pe
    - Actualización automática de gráficos.
 
 
-Puedes visitar el deploy del Backend [aquí](https://proyecto-clima-azure.vercel.app/).
+Puedes visitar el deploy del Frontend [aquí](https://proyecto-clima-azure.vercel.app/).
 
 
 ### **Dependencias del Frontend**
