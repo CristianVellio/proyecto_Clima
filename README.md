@@ -18,7 +18,7 @@ Puedes visitar nuestro proyecto [aqui](https://proyecto-clima-azure.vercel.app/)
 
 ---
 
-<H2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40"/> Etapa Inicial: Desarrollo en Wokwi 🛠️ </H2>
+<H2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="40" height="40"/> Etapa Inicial: Desarrollo en Wokwi <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" width="40" height="40"/> </H2>
 
 La primera etapa del proyecto se llevó a cabo en [Wokwi](https://wokwi.com/), una plataforma en línea para simular proyectos con microcontroladores. En esta fase se realizó:
 
