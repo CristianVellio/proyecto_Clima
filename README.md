@@ -101,7 +101,7 @@ Puedes visitar el deploy del Frontend [aquí](https://proyecto-clima-azure.verce
 
 3. **Frontend**:
    - Consulta los datos desde Supabase y los representa en gráficos interactivos.
-   - Alertas dinámicas basadas en los datos más recientes.
+   - Gráficos dinámicas basadas en los datos más recientes.
 
 
       - Microcontrolador: [Wokwi](https://wokwi.com/) 
