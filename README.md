@@ -1,7 +1,8 @@
 <h1 align="center"> Proyecto Estación Meteorológica 🌤️ </h1>
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/b1a741c9-742b-45f8-a66d-9932fae553f5" alt="Estacion_Meteorologica" width="500" height="200">
+<img src="https://github.com/user-attachments/assets/b1a741c9-742b-45f8-a66d-9932fae553f5" alt="Estacion_Meteorologica" width="300" height="150">
+<img src="https://github.com/user-attachments/assets/bbc762b9-b93d-4cf5-b790-ede91bc3a098" alt="Wokwi" width="300" height="150">
 </div>
 
 <h2 align="center"> Introducción </h2>
