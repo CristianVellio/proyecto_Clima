@@ -35,7 +35,7 @@ Esta etapa fue crucial para validar el diseño inicial del sistema y garantizar 
 
 <h2 align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40" height="40"/>  Backend <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="40" height="40"/> </h2>
 
-El backend del proyecto conecta el ESP32 con una base de datos en **Supabase**, donde se almacenan todos los registros ambientales enviados desde el microcontrolador. Esta capa intermedia garantiza una comunicación fluida y segura entre el hardware y los datos en la nube.
+El backend del proyecto conecta el ESP32 con una base de datos **PostgreSQL** en **Supabase**, donde se almacenan todos los registros ambientales enviados desde el microcontrolador. Esta capa intermedia garantiza una comunicación fluida y segura entre el hardware y los datos en la nube.
 
 ### **Funcionalidades**
 
