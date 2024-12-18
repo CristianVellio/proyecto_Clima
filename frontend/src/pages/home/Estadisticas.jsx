@@ -10,7 +10,7 @@ const Estadisticas = () => {
       </h2>
 
       {/* Contenido principal: Gráfico y Descripción */}
-      <div className="md:flex md:items-start md:justify-between gap-8 w-full max-w-7xl">
+      <div className="md:flex md:items-start md:justify-between py-6 gap-8 w-full max-w-7xl">
         {/* Contenedor del gráfico */}
         <div className="md:w-2/3 w-full">
           <GraficoEstadisticas />
