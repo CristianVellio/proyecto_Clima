@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cargando from "../../components/Cargando";
 
-// Registrar los módulos necesarios para el gráfico de línea
+// Registrar componentes necesarios de ChartJS
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -60,18 +60,16 @@ const GraficoEstadisticas = () => {
             {
               label: "Temperatura (°C)",
               data: temperaturas,
-              yAxisID: "y1",
               borderColor: "rgba(255, 99, 132, 1)",
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              tension: 0.4,
+              backgroundColor: "rgba(255, 99, 132, 0.5)",
+              yAxisID: "y",
             },
             {
               label: "Humedad (%)",
               data: humedades,
-              yAxisID: "y2",
               borderColor: "rgba(54, 162, 235, 1)",
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              tension: 0.4,
+              backgroundColor: "rgba(54, 162, 235, 0.5)",
+              yAxisID: "y1",
             },
           ],
         });
@@ -88,39 +86,32 @@ const GraficoEstadisticas = () => {
 
   const options = {
     responsive: true,
+    interaction: {
+      mode: "index",
+      intersect: false,
+    },
+    stacked: false,
     plugins: {
       legend: {
         position: "top",
       },
       title: {
         display: true,
-        text: "Medición en Tiempo Real: Temperatura y Humedad",
+        text: "Mediciones en Tiempo Real (Multi Axis)",
       },
     },
     scales: {
+      y: {
+        type: "linear",
+        display: true,
+        position: "left",
+      },
       y1: {
         type: "linear",
-        position: "left",
-        title: {
-          display: true,
-          text: "Temperatura (°C)",
-        },
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-      y2: {
-        type: "linear",
+        display: true,
         position: "right",
-        title: {
-          display: true,
-          text: "Humedad (%)",
-        },
-        ticks: {
-          beginAtZero: true,
-        },
         grid: {
-          drawOnChartArea: false, // Evita que las líneas de la escala y2 se superpongan con y1
+          drawOnChartArea: false, // Opcional: evita que las líneas de cuadrícula se sobrepongan
         },
       },
     },
@@ -139,7 +130,9 @@ const GraficoEstadisticas = () => {
       <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
         Estadísticas de Humedad y Temperatura
       </h2>
-      <Line data={chartData} options={options} />
+      <div className="hidden md:block">
+        <Line data={chartData} options={options} />
+      </div>
     </div>
   );
 };
