@@ -1,9 +1,10 @@
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
@@ -12,10 +13,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cargando from "../../components/Cargando";
 
+// Registrar los módulos necesarios para el gráfico de línea
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -32,8 +35,6 @@ const GraficoEstadisticas = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              // "Access-Control-Allow-Origin":
-              //   "https://proyecto-clima-azure.vercel.app",
             },
             withCredentials: false,
           }
@@ -49,9 +50,9 @@ const GraficoEstadisticas = () => {
             hour: "2-digit",
             minute: "2-digit",
           })
-        ); // Extract dates
-        const temperaturas = fetchedData.map((item) => item.temperatura); // Extract temperatures
-        const humedades = fetchedData.map((item) => item.humedad); // Extract humidity
+        );
+        const temperaturas = fetchedData.map((item) => item.temperatura);
+        const humedades = fetchedData.map((item) => item.humedad);
 
         setChartData({
           labels: created_at,
@@ -59,16 +60,18 @@ const GraficoEstadisticas = () => {
             {
               label: "Temperatura (°C)",
               data: temperaturas,
-              backgroundColor: "rgba(255, 290, 59, 0.7)",
-              borderColor: "rgba(255, 290, 59, 1)",
-              borderWidth: 1,
+              yAxisID: "y1",
+              borderColor: "rgba(255, 99, 132, 1)",
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              tension: 0.4,
             },
             {
               label: "Humedad (%)",
               data: humedades,
-              backgroundColor: "rgba(118, 96, 34, 0.7)",
-              borderColor: "rgba(118, 96, 34, 1)",
-              borderWidth: 1,
+              yAxisID: "y2",
+              borderColor: "rgba(54, 162, 235, 1)",
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              tension: 0.4,
             },
           ],
         });
@@ -91,12 +94,34 @@ const GraficoEstadisticas = () => {
       },
       title: {
         display: true,
-        text: "Medicion en Tiempo Real",
+        text: "Medición en Tiempo Real: Temperatura y Humedad",
       },
     },
     scales: {
-      y: {
-        beginAtZero: true,
+      y1: {
+        type: "linear",
+        position: "left",
+        title: {
+          display: true,
+          text: "Temperatura (°C)",
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+      y2: {
+        type: "linear",
+        position: "right",
+        title: {
+          display: true,
+          text: "Humedad (%)",
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+        grid: {
+          drawOnChartArea: false, // Evita que las líneas de la escala y2 se superpongan con y1
+        },
       },
     },
   };
@@ -114,9 +139,7 @@ const GraficoEstadisticas = () => {
       <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
         Estadísticas de Humedad y Temperatura
       </h2>
-      <div className="hidden md:block">
-        <Bar data={chartData} options={options} />
-      </div>
+      <Line data={chartData} options={options} />
     </div>
   );
 };
