@@ -28,10 +28,10 @@ const Estadisticas = () => {
             visualizar los valores de temperatura (en grados Celsius) y humedad
             (en porcentaje) recopilados de las mediciones de un sistema de
             monitoreo ambiental IoT. <br />
-            El gráfico proporciona una manera clara y visual de comparar las
-            fluctuaciones de temperatura y humedad en intervalos de tiempo
-            específicos. Además, ayuda a identificar tendencias o anomalías en
-            las condiciones ambientales registradas.
+            Proporciona una manera clara y visual de comparar las fluctuaciones
+            de temperatura y humedad en intervalos de tiempo específicos;
+            ayudando a identificar tendencias o anomalías en las condiciones
+            ambientales registradas.
           </p>
         </div>
       </div>
