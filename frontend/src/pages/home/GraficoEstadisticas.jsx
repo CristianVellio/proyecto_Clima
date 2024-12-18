@@ -91,7 +91,7 @@ const GraficoEstadisticas = () => {
       },
       title: {
         display: true,
-        text: "Estadísticas de Medición - Humedad y Temperatura",
+        text: "Medicion en Tiempo Real",
       },
     },
     scales: {

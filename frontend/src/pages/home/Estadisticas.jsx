@@ -10,6 +10,14 @@ const Estadisticas = () => {
         <div>
           <GraficoEstadisticas />
         </div>
+        <div>
+          <p>
+            El gráfico de estadísticas es un diagrama de barras diseñado para
+            visualizar los valores de temperatura (en grados Celsius) y humedad
+            (en porcentaje) recopilados de las mediciones de un sistema de
+            monitoreo ambiental IoT.
+          </p>
+        </div>
       </div>
     </div>
   );
