@@ -10,14 +10,14 @@ const Estadisticas = () => {
       </h2>
 
       {/* Contenido principal: Gráfico y Descripción */}
-      <div className="md:flex md:items-start md:justify-between py-8 gap-8 w-full max-w-7xl">
+      <div className="md:flex md:items-stretch md:justify-between py-8 gap-8 w-full max-w-7xl">
         {/* Contenedor del gráfico */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-2/3 w-full flex items-center">
           <GraficoEstadisticas />
         </div>
 
         {/* Contenedor del párrafo y la imagen */}
-        <div className="md:w-1/3 w-full flex flex-col gap-6 items-start">
+        <div className="md:w-1/3 w-full flex flex-col gap-6">
           <img
             src={Irrigo2}
             alt="Irrigo"
