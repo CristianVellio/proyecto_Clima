@@ -114,10 +114,8 @@ const GraficoEstadisticas = () => {
       <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
         Estadísticas de Humedad y Temperatura
       </h2>
-      <div className="block">
-        <div className="md:w-[800px] md:h-[500px] w-full h-[300px] mx-auto">
-          <Bar data={chartData} options={options} />
-        </div>
+      <div className="hidden md:block">
+        <Bar data={chartData} options={options} />
       </div>
     </div>
   );
