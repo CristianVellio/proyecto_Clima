@@ -60,8 +60,8 @@ const GraficoEstadisticas = () => {
             {
               label: "Temperatura (°C)",
               data: temperaturas,
-              borderColor: "rgba(255, 238, 59, 1)",
-              backgroundColor: "rgba(255, 238, 59, 0.5)",
+              borderColor: "rgba(219, 17, 31, 1)",
+              backgroundColor: "rgba(219, 17, 31, 0.5)",
               yAxisID: "y",
             },
             {
