@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Cargando from "../../components/Cargando";
 
 ChartJS.register(
   CategoryScale,
@@ -40,7 +41,15 @@ const GraficoEstadisticas = () => {
 
         const fetchedData = response.data.data;
 
-        const created_at = fetchedData.map((item) => item.created_at); // Extract dates
+        const created_at = fetchedData.map((item) =>
+          new Date(item.created_at).toLocaleString("es-ES", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })
+        ); // Extract dates
         const temperaturas = fetchedData.map((item) => item.temperatura); // Extract temperatures
         const humedades = fetchedData.map((item) => item.humedad); // Extract humidity
 
@@ -93,7 +102,11 @@ const GraficoEstadisticas = () => {
   };
 
   if (!chartData) {
-    return <div>Cargando datos...</div>;
+    return (
+      <div>
+        <Cargando />
+      </div>
+    );
   }
 
   return (
